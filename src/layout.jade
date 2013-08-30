@@ -1,0 +1,42 @@
+doctype 5
+html
+  head
+    title= title
+
+    script.
+
+      function loadFile(url) {
+         var script = document.createElement('SCRIPT');
+         script.src = url;
+         document.getElementsByTagName('HEAD')[0].appendChild(script);
+       }
+      
+      function getWidth()
+        {
+          var x = 0;
+          if (self.innerHeight)
+          {
+              x = self.innerWidth;
+          }
+          else if (document.documentElement && document.documentElement.clientHeight)
+          {
+              x = document.documentElement.clientWidth;
+          }
+          else if (document.body)
+          {
+              x = document.body.clientWidth;
+          }
+          return x;
+        }
+
+      var file = "";
+      if(getWidth() < 600 ){
+        file = "#{path}#{build}/mobile.js";
+      }
+      else{
+        file = "#{path}#{build}/web.js";
+      }
+      loadFile(file);
+
+  body
+    block content
