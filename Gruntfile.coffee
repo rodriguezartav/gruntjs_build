@@ -66,8 +66,6 @@ module.exports = (grunt) ->
       options: 
         bucket: "gruntjs.rodcocr.com",
         access: 'public-read'
-
-
       test:
         options:
           encodePaths: true,
